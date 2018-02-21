@@ -24,6 +24,14 @@ def on_draw():
 # to capture mouse presses/events
 @GAME_WINDOW.event
 def on_mouse_press(x, y, button, modifiers):
+    for i in AllMenus:
+        for k,v in AllMenus[i].menuItems.iteritems():
+            if k in AllMenus[i].readableLabels:
+                if v[0].checkPress(x,y):
+                    v[0].downImage()
+
+@GAME_WINDOW.event
+def on_mouse_release(x, y, button, modifiers):
     functionsToFire = []
     for i in AllMenus:
         for k,v in AllMenus[i].menuItems.iteritems():
@@ -32,9 +40,6 @@ def on_mouse_press(x, y, button, modifiers):
                     functionsToFire.append(v[1])
     for i in functionsToFire:
         i()
-
-@GAME_WINDOW.event
-def on_mouse_release(x, y, button, modifiers):
     for i in AllMenus:
         for k,v in AllMenus[i].menuItems.iteritems():
             v[0].upImage()
