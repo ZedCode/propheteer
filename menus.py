@@ -53,7 +53,9 @@ def mainMenu():
     # for and call their hide method.
     for i in AllMenus:
         AllMenus[i].hide()
+    AllMenus['MainMenu'].menuTitle()
     AllMenus['MainMenu'].show()
+
 
 def quitGame():
     # Hide all menus and quit game.
@@ -88,7 +90,8 @@ for i in menuFromJSON['menus']:
         renderBatch=RENDER_BATCH,
         buttonUp=MenuButtonImages[str(i['menu']['buttonUp'])],
         buttonDown=MenuButtonImages[str(i['menu']['buttonDown'])],
-        horizontal=i['menu']['horizontal']
+        horizontal=i['menu']['horizontal'],
+        title=str(i['menu']['name'])
     )
 for i in menuFromJSON['menus']:
     for f in i['menu']['items']:

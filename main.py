@@ -10,6 +10,7 @@ from menus import AllMenus
 # in the necessary imports to start the game.
 
 # We can kick off the rest of the entire game from showing the main menu.
+AllMenus['MainMenu'].menuTitle()
 AllMenus['MainMenu'].show()
 
 # Event code should be kept to a minimum and instead
