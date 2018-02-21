@@ -3,6 +3,8 @@
     {
       "menu": {
         "name": "Main Menu",
+        "x": 4,
+        "y": 5,
         "buttonUp": "buttonLongBlue",
         "buttonDown": "buttonLongBluePressed",
         "horizontal": false,
@@ -25,6 +27,8 @@
     {
       "menu": {
         "name": "Options Menu",
+        "x": 4,
+        "y": 5,
         "buttonUp": "buttonLongBlue",
         "buttonDown": "buttonLongBluePressed",
         "horizontal": false,
@@ -39,6 +43,8 @@
     {
       "menu": {
         "name": "Quit Confirm Menu",
+        "x": 3,
+        "y": 5,
         "buttonUp": "buttonLongBlue",
         "buttonDown": "buttonLongBluePressed",
         "horizontal": true,

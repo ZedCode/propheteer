@@ -81,8 +81,8 @@ MenuMapFunctions = {
 AllMenus = {}
 for i in menuFromJSON['menus']:
     AllMenus[str(i['menu']['name']).replace(" ","")] = menu(
-        x=GAME_WINDOW.width / 2,
-        y=GAME_WINDOW.height / 2,
+        x=(GAME_WINDOW.width / 8) * i['menu']['x'],
+        y=(GAME_WINDOW.height / 8) * i['menu']['y'],
         buttonLayer=BUTTON_LAYER,
         textLayer=TEXT_LAYER,
         renderBatch=RENDER_BATCH,

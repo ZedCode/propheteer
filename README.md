@@ -42,26 +42,26 @@ Cleaning up...
 The `main.py` file points to the relative `pyglet/bin/python` binary.
 
 # Working with the UI
-**NOTE**: This refactor work is in progress right now, and everything under `utils/menu` needs to be updated to work like this instead of how it's currently working.
+**NOTE**: This refactor work is in progress right now. It's crudely setup for menus at the moment. It will need to be more refined for the actual "widget" objects as they will need to provide interaction, pieces of information, etc.
 
 Because Pyglet does not provide any graceful UI handling, we will provide our own. Our UI will be based on cutting the screen into a 8x8 grid and then defining x,y values based on this coordinate system. The upper left spot will be 0,0 all the way down to 7,7:
 ```
 +-----+-----+-----+-----+-----+-----+-----+-----+
-| 0,0 | 1,0 | 2,0 | 3,0 | 4,0 | 5,0 | 6,0 | 7,0 |
-+-----+-----+-----+-----+-----+-----+-----+-----+
-| 0,1 | 1,1 | 2,1 | 3,1 | 4,1 | 5,1 | 6,1 | 7,1 |
-+-----+-----+-----+-----+-----+-----+-----+-----+
-| 0,2 | 1,2 | 2,2 | 3,2 | 4,2 | 5,2 | 6,2 | 7,2 |
-+-----+-----+-----+-----+-----+-----+-----+-----+
-| 0,3 | 1,3 | 2,3 | 3,3 | 4,3 | 5,3 | 6,3 | 7,3 |
-+-----+-----+-----+-----+-----+-----+-----+-----+
-| 0,4 | 1,4 | 2,4 | 3,4 | 4,4 | 5,4 | 6,4 | 7,4 |
-+-----+-----+-----+-----+-----+-----+-----+-----+
-| 0,5 | 1,5 | 2,5 | 3,5 | 4,5 | 5,5 | 6,5 | 7,5 |
+| 0,7 | 1,7 | 2,7 | 3,7 | 4,7 | 5,7 | 6,7 | 7,7 |
 +-----+-----+-----+-----+-----+-----+-----+-----+
 | 0,6 | 1,6 | 2,6 | 3,6 | 4,6 | 5,6 | 6,6 | 7,6 |
 +-----+-----+-----+-----+-----+-----+-----+-----+
-| 0,7 | 1,7 | 2,7 | 3,7 | 4,7 | 5,7 | 6,7 | 7,7 |
+| 0,5 | 1,5 | 2,5 | 3,5 | 4,5 | 5,5 | 6,5 | 7,5 |
++-----+-----+-----+-----+-----+-----+-----+-----+
+| 0,4 | 1,4 | 2,4 | 3,4 | 4,4 | 5,4 | 6,4 | 7,4 |
++-----+-----+-----+-----+-----+-----+-----+-----+
+| 0,3 | 1,3 | 2,3 | 3,3 | 4,3 | 5,3 | 6,3 | 7,3 |
++-----+-----+-----+-----+-----+-----+-----+-----+
+| 0,2 | 1,2 | 2,2 | 3,2 | 4,2 | 5,2 | 6,2 | 7,2 |
++-----+-----+-----+-----+-----+-----+-----+-----+
+| 0,1 | 1,1 | 2,1 | 3,1 | 4,1 | 5,1 | 6,1 | 7,1 |
++-----+-----+-----+-----+-----+-----+-----+-----+
+| 0,0 | 1,0 | 2,0 | 3,0 | 4,0 | 5,0 | 6,0 | 7,0 |
 +-----+-----+-----+-----+-----+-----+-----+-----+
 ```
 
