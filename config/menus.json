@@ -1,0 +1,58 @@
+{
+  "menus": [
+    {
+      "menu": {
+        "name": "Main Menu",
+        "buttonUp": "buttonLongBlue",
+        "buttonDown": "buttonLongBluePressed",
+        "horizontal": false,
+        "items": [
+          {
+            "name": "New Game",
+            "function": "newGameMenu"
+          },
+          {
+            "name": "Options",
+            "function": "optionsMenu"
+          },
+          {
+            "name": "Quit",
+            "function": "quitConfirmMenu"
+          }
+        ]
+      }
+    },
+    {
+      "menu": {
+        "name": "Options Menu",
+        "buttonUp": "buttonLongBlue",
+        "buttonDown": "buttonLongBluePressed",
+        "horizontal": false,
+        "items": [
+          {
+            "name": "Back",
+            "function": "mainMenu"
+          }
+        ]
+      }
+    },
+    {
+      "menu": {
+        "name": "Quit Confirm Menu",
+        "buttonUp": "buttonLongBlue",
+        "buttonDown": "buttonLongBluePressed",
+        "horizontal": true,
+        "items": [
+          {
+            "name": "No",
+            "function": "mainMenu"
+          },
+          {
+            "name": "Yes",
+            "function": "quitGame"
+          }
+        ]
+      }
+    }
+  ]
+}
