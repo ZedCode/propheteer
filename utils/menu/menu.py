@@ -21,7 +21,7 @@ class buttonUI(pyglet.sprite.Sprite):
         self.image = self.buttonUp
 
 class menu():
-    def __init__(self, x, y, buttonLayer, textLayer, renderBatch, buttonUp, buttonDown, horizontal=False, title=None):
+    def __init__(self, x, y, buttonLayer, textLayer, renderBatch, buttonUp, buttonDown, horizontal=False):
         self.x = x
         self.y = y
         self.menuItems = {}
@@ -33,8 +33,10 @@ class menu():
         self.buttonUp = buttonUp
         self.buttonDown = buttonDown
         self.horizontal = horizontal
-        self.title = title
+        self.title = None
         self.titleObj = None
+        self.titleBackgroundObj = None
+
     def add(self, text, action):
         if self.horizontal:
             itemX = self.x + (self.buttonUp.width * len(self.menuItems))
@@ -49,14 +51,14 @@ class menu():
             buttonDown=self.buttonDown)
         self.menuItems[text] = [uiObj, action]
 
-    def menuTitle(self):
-        print("what")
-        itemY = self.y + self.buttonUp.height
+    def menuTitle(self, menuName):
+        self.title = menuName
+        itemY = self.y + self.buttonUp.height + (self.buttonUp.height / 2)
         if self.horizontal:
             itemX = self.x + (self.buttonUp.width / 2)
         else:
             itemX = self.x
-        uiObj = buttonUI(x=itemX, y=itemY,
+        self.titleBackgroundObj = buttonUI(x=itemX, y=itemY,
             batch=self.renderBatch,
             group=self.buttonLayer,
             buttonUp=self.buttonUp,
@@ -74,19 +76,30 @@ class menu():
               anchor_x='center', anchor_y='center',
               batch=self.renderBatch, group=self.textLayer))
             self.readableLabels.append(k)
+
     def hide(self):
         for i in self.labels:
             i.batch = None
         for i in self.labels:
             i.delete()
+        if self.titleObj:
+            print("Deleting title Obj "+self.title)
+            self.titleObj.batch = None
+            self.titleObj.delete()
+            # For some reason simply calling the delete method is not working,
+            # but setting the object value to None does appear to make this work.
+            self.titleObj = None
         self.readableLabels = []
         for k,v in self.menuItems.iteritems():
             self.menuItems[k][0].batch = None
-        if self.titleObj is not None:
-            self.titleObj.batch = None
+        if self.titleBackgroundObj:
+            self.titleBackgroundObj.batch = None
+
     def show(self):
         self.makeLabels()
         for k,v in self.menuItems.iteritems():
             self.menuItems[k][0].batch = self.renderBatch
-        if self.titleObj is not None:
+        if self.titleObj:
             self.titleObj.batch = self.renderBatch
+        if self.titleBackgroundObj:
+            self.titleBackgroundObj = self.renderBatch

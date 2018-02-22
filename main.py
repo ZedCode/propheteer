@@ -1,7 +1,7 @@
 #!pyglet/bin/python
 import pyglet, os, sys
 from globalvars import GAME_WINDOW, RENDER_BATCH
-from menus import AllMenus
+from menus import AllMenus, mainMenu
 
 
 # Propheteer main.py
@@ -10,8 +10,7 @@ from menus import AllMenus
 # in the necessary imports to start the game.
 
 # We can kick off the rest of the entire game from showing the main menu.
-AllMenus['MainMenu'].menuTitle()
-AllMenus['MainMenu'].show()
+mainMenu()
 
 # Event code should be kept to a minimum and instead
 # should just iterate over objects which need to be

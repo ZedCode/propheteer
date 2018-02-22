@@ -35,26 +35,23 @@ def newGameMenu():
     print("Inside of newGameMenu function. Not implemented.")
 
 def optionsMenu():
-    # The options menu can only be called from the main menu, so
-    # that is the only menu we have to worry about ensuring is
-    # hidden prior to drawing the options menu.
-    AllMenus['MainMenu'].hide()
-    AllMenus['OptionsMenu'].show()
-
-def quitConfirmMenu():
-    # The quit Confirm can only be called from the main menu, so we
-    # only have to hide that menu.
-    AllMenus['MainMenu'].hide()
-    AllMenus['QuitConfirmMenu'].show()
-
-def mainMenu():
-    # We don't know what was on screen when this was called, so
-    # hide all other menus as that's all we can possibly be responsible
-    # for and call their hide method.
     for i in AllMenus:
         AllMenus[i].hide()
-    AllMenus['MainMenu'].menuTitle()
+    AllMenus['OptionsMenu'].show()
+    AllMenus['OptionsMenu'].menuTitle("Options")
+
+def quitConfirmMenu():
+    for i in AllMenus:
+        AllMenus[i].hide()
+    AllMenus['QuitConfirmMenu'].show()
+    AllMenus['QuitConfirmMenu'].menuTitle("Are you Sure?")
+
+def mainMenu():
+    for i in AllMenus:
+        AllMenus[i].hide()
     AllMenus['MainMenu'].show()
+    AllMenus['MainMenu'].menuTitle("Main Menu")
+
 
 
 def quitGame():
@@ -90,8 +87,7 @@ for i in menuFromJSON['menus']:
         renderBatch=RENDER_BATCH,
         buttonUp=MenuButtonImages[str(i['menu']['buttonUp'])],
         buttonDown=MenuButtonImages[str(i['menu']['buttonDown'])],
-        horizontal=i['menu']['horizontal'],
-        title=str(i['menu']['name'])
+        horizontal=i['menu']['horizontal']
     )
 for i in menuFromJSON['menus']:
     for f in i['menu']['items']:
