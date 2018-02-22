@@ -2,7 +2,7 @@ import pyglet, os, sys
 from utils.core import CenterImage
 from utils.config.jsonloader import LoadData
 from utils.menu.menu import menu
-from globalvars import RENDER_BATCH, BUTTON_LAYER, TEXT_LAYER, GAME_WINDOW
+from globalvars import RENDER_BATCH, BUTTON_LAYER, TEXT_LAYER, GAME_WINDOW, UI_WIDTH, UI_HEIGHT
 # menus.py
 #  Contains the code to support menu
 #  functionality.
@@ -80,8 +80,8 @@ MenuMapFunctions = {
 AllMenus = {}
 for i in menuFromJSON['menus']:
     AllMenus[str(i['menu']['name']).replace(" ","")] = menu(
-        x=(GAME_WINDOW.width / 16) * i['menu']['x'],
-        y=(GAME_WINDOW.height / 9) * i['menu']['y'],
+        x=(GAME_WINDOW.width / UI_WIDTH) * i['menu']['x'],
+        y=(GAME_WINDOW.height / UI_HEIGHT) * i['menu']['y'],
         buttonLayer=BUTTON_LAYER,
         textLayer=TEXT_LAYER,
         renderBatch=RENDER_BATCH,

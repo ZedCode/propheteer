@@ -1,6 +1,6 @@
 #!pyglet/bin/python
 import pyglet, os, sys
-from globalvars import GAME_WINDOW, RENDER_BATCH
+from globalvars import GAME_WINDOW, RENDER_BATCH, BACKGROUND_LAYER
 from menus import AllMenus, mainMenu
 
 
@@ -9,8 +9,7 @@ from menus import AllMenus, mainMenu
 # This file should merely be the entry point into the game. It should bring
 # in the necessary imports to start the game.
 
-# We can kick off the rest of the entire game from showing the main menu.
-mainMenu()
+
 
 # Event code should be kept to a minimum and instead
 # should just iterate over objects which need to be
@@ -45,4 +44,18 @@ def on_mouse_release(x, y, button, modifiers):
             v[0].upImage()
 
 if __name__ == '__main__':
+    # We can kick off the rest of the entire game from showing the main menu.
+    mainMenu()
+
+    # Load the background image
+    #  This should be broken out into some sort of loading module that can
+    #  figure out assets to load and handle things more gracefully.
+    BackgroundImage = pyglet.image.load(os.path.join(os.path.dirname(__file__),
+        'resources',
+        'background_576p.png'))
+    BackgroundSprite = pyglet.sprite.Sprite(img=BackgroundImage, x=0, y=0)
+    BackgroundSprite.batch = RENDER_BATCH
+    BackgroundSprite.group = BACKGROUND_LAYER
+
+    # Finally, start the application
     pyglet.app.run()
