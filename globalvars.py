@@ -19,4 +19,4 @@ TEXT_LAYER = pyglet.graphics.OrderedGroup(1)
 
 # The GAME_WINDOW actually contains useful things
 # such as it's own state, so we want to use it throughout.
-GAME_WINDOW = pyglet.window.Window(800,600)
+GAME_WINDOW = pyglet.window.Window(1024,576)
