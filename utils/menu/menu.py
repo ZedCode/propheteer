@@ -83,11 +83,12 @@ class menu():
         for i in self.labels:
             i.delete()
         if self.titleObj:
-            print("Deleting title Obj "+self.title)
             self.titleObj.batch = None
             self.titleObj.delete()
             # For some reason simply calling the delete method is not working,
-            # but setting the object value to None does appear to make this work.
+            # likely because it can be called multiple times in one frame, making
+            # the end result unexpected. Removing the render batch, calling delete
+            # and setting to None ensures it's cleaned up right.
             self.titleObj = None
         self.readableLabels = []
         for k,v in self.menuItems.iteritems():
