@@ -1,0 +1,31 @@
+{
+  "widgetCollections": [
+    {
+      "widget": {
+        "name": "optionsWidget",
+        "x": 8,
+        "y": 5,
+        "widgets": [
+          {
+            "name": "resolution1",
+            "widgetUp": "resolutionWidget1",
+            "widgetDown": "resolutionWidget1Down",
+            "xoffset": 0,
+            "yoffset": 0,
+            "clickable": true,
+            "function": "setResolution1"
+          },
+          {
+            "name": "resolution2",
+            "widgetUp": "resolutionWidget2",
+            "widgetDown": "resolutionWidget2Down",
+            "xoffset": 100,
+            "yoffset": -10,
+            "clickable": true,
+            "function": "setResolution2"
+          }
+        ]
+      }
+    }
+  ]
+}

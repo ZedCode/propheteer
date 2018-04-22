@@ -9,14 +9,17 @@ import pyglet
 RENDER_BATCH = pyglet.graphics.Batch()
 
 BACKGROUND_LAYER = pyglet.graphics.OrderedGroup(0)
+# the layer to draw widgets on should be behind the button
+# layer so that we ensure menus pop over widgets.
+WIDGET_LAYER = pyglet.graphics.OrderedGroup(1)
 # The layer to draw button images on should always
 # immediately precede the TEXT_LAYER so we know text
 # always has a background if it belongs to a button.
-BUTTON_LAYER = pyglet.graphics.OrderedGroup(1)
+BUTTON_LAYER = pyglet.graphics.OrderedGroup(2)
 # The layer text is drawn on, this should always be
 # the top layer, so as you need to index additional
 # layers, continue to increment this.
-TEXT_LAYER = pyglet.graphics.OrderedGroup(2)
+TEXT_LAYER = pyglet.graphics.OrderedGroup(3)
 
 # The GAME_WINDOW actually contains useful things
 # such as it's own state, so we want to use it throughout.

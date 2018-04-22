@@ -11,10 +11,12 @@ class buttonUI(pyglet.sprite.Sprite):
         # keep buttons square, otherwise this gets complex.
         if not self.clickable:
             return False
-        if x > self.x - (self.width / 2) and x < self.x + (self.width / 2):
-            if y > self.y - (self.height / 2) and y < self.y + (self.height / 2):
-                self.downImage()
-                return True
+        if (x > self.x - (self.width / 2) and x < self.x + (self.width / 2)) and \
+        (y > self.y - (self.height / 2) and y < self.y + (self.height / 2)):
+            self.downImage()
+            return True
+        else:
+            return False
     def downImage(self):
         self.image = self.buttonDown
     def upImage(self):
