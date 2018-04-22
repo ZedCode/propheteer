@@ -87,3 +87,11 @@ Should any 3D elements need to be created, **Blender3D** will be used. It is fre
 
 ### 2D
 Background and larger images are done in **Krita** which is freely available. Isometric sprite work is done in **Hexels 3** which is available on Steam.
+
+
+## Contributing
+To contribute to this project, create a feature branch as follows:
+```
+$ git checkout -b my-feature-branch
+```
+Check in your changes and make a pull request.
